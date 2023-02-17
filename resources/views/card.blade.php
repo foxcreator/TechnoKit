@@ -8,10 +8,11 @@
         <div class="caption">
             <h3>{{ $product->name }}</h3>
             <p>{{ $product->price }} uah</p>
+            {{ $product->category->name }}
             <p>
             <form action="http://internet-shop.tmweb.ru/basket/add/1" method="POST">
                 <button type="submit" class="btn btn-success" role="button">В корзину</button>
-                <a href="http://internet-shop.tmweb.ru/mobiles/iphone_x_64"
+                <a href="{{ route('product', [$product->category->code, $product->code]) }}"
                    class="btn btn-default"
                    role="button">Подробнее</a>
                 <input type="hidden" name="_token" value="4FCeJq8vEzeqDEVySYFJ6NylJjr9gEicsYwdV7oW">            </form>

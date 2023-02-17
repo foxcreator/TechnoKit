@@ -3,6 +3,7 @@
 @section('title', 'Головна')
 
 @section('content')
+
 <div id="carousel-ex" class="carousel slide carousel-fade pt-5" data-ride="carousel">
     <ol class="carousel-indicators">
         <li data-bs-target="#carousel-ex" data-slide-to="0"></li>
@@ -72,11 +73,11 @@
         </div>
     </div>
     <div class="container">
-        <div class="row d-flex justify-content-center"></div>
+        <div class="row d-flex justify-content-center">
         @foreach($products as $product)
              @include('card', compact('product'))
         @endforeach
-
+        </div>
     </div>
 </main>
 

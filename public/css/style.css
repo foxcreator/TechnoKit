@@ -115,7 +115,7 @@ footer {
 }
 
 body {
-    padding-top: 40px;
+    padding-top: 20px;
 }
 
 .starter-template {
@@ -185,6 +185,7 @@ a {
 .navbar-light .navbar-nav .nav-item {
     position: relative;
     margin: auto;
+
 }
 
 html, body, .view {
@@ -192,10 +193,12 @@ html, body, .view {
 }
 
 .carousel {
+
     height: 50%;
 }
 
 .carousel .carousel-inner {
+    margin-top: auto;
     height: 100%;
 }
 

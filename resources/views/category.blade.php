@@ -1,6 +1,6 @@
 @extends('master')
 
-@section('title', $category->name)
+@section('title')
 
 @section('content')
 
@@ -22,12 +22,14 @@
     <div class="starter-template">
 
         <h1 style="margin-bottom: 30px; font-family: Anybody;">
-            {{$category->name}}
+            {{$category?->name}}
 
         </h1>
 
         <div class="row">
-            @include('card')
+            @foreach($category->products as $product)
+                @include('card', compact('product'))
+            @endforeach
         </div>
     </div>
 </div>
