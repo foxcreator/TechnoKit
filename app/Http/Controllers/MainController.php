@@ -31,8 +31,5 @@ class MainController extends Controller
         return view('category', compact('category', 'categories'));
     }
 
-    public function basket()
-    {
-        return view('basket');
-    }
+
 }

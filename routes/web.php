@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+//use App\Http\Controllers\BasketController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,12 +21,18 @@ use Illuminate\Support\Facades\Route;
 
 
 
-
 Route::get('/','App\Http\Controllers\MainController@index')->name('index');
-//Route::get('/catalog','App\Http\Controllers\MainController@catalog');
 Route::get('/{category?}','App\Http\Controllers\MainController@category')->name('category');
-Route::get('/{category}/{product}','App\Http\Controllers\MainController@product')->name('product') ;
-Route::get('/basket','App\Http\Controllers\MainController@basket')->name('basket') ;
+Route::get('/{category}/{product?}','App\Http\Controllers\MainController@product')->name('product');
+
+Route::get('/basket','App\Http\Controllers\BasketController@basket')->name('basket') ;
+Route::post('/basket/add/{id}', 'BasketController@basketAdd')->name('basket-add');
+
+
+//Route::get('/basket', [\App\Http\Controllers\BasketController::class, 'basket']);
+//Route::get('/basket/add/{id}', [\App\Http\Controllers\BasketController::class, 'basketAdd']);
+
+
 
 
 

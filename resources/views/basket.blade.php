@@ -29,11 +29,12 @@
                                 </tr>
                                 </thead>
                                 <tbody>
+                                @foreach($order->products as $product)
                                 <tr>
                                     <td>
-                                        <a href="http://internet-shop.tmweb.ru/mobiles/iphone_x_256">
+                                        <a href="{{ route('product', [$product->category->code, $product->code]) }}">
                                             <img height="56px" src="http://internet-shop.tmweb.ru/storage/products/iphone_x_silver.jpg">
-                                            iPhone X 256GB
+                                            {{ $product->name }}
                                         </a>
                                     </td>
                                     <td><span class="badge">1</span>
@@ -42,16 +43,18 @@
                                                 <button type="submit" class="btn btn-danger" href=""><span
                                                         class="glyphicon glyphicon-minus" aria-hidden="true"></span></button>
                                                 <input type="hidden" name="_token" value="uJxGNxe52yCdgEz9pIZAnphsgwvLb8BS8i05tld9">                            </form>
-                                            <form action="http://internet-shop.tmweb.ru/basket/add/2" method="POST">
+                                            <form action="{{ route('basket-add', $product) }}" method="POST">
                                                 <button type="submit" class="btn btn-success"
-                                                        href=""><span
+                                                        href="{{ route('basket-add', $product) }}"><span
                                                         class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
-                                                <input type="hidden" name="_token" value="uJxGNxe52yCdgEz9pIZAnphsgwvLb8BS8i05tld9">                            </form>
+                                                @csrf
+                                            @endforeach
                                         </div>
                                     </td>
-                                    <td>89990 ₽</td>
-                                    <td>89990 ₽</td>
+                                    <td>{{ $product->price }} </td>
+                                    <td>{{ $product->price }} </td>
                                 </tr>
+                                @endforeach
                                 <tr>
                                     <td colspan="3">Общая стоимость:</td>
                                     <td>89990 ₽</td>
