@@ -23,13 +23,27 @@ class BasketController extends Controller
         if (is_null($orderId)) {
             return redirect()->route('index');
         }
-        $order = Order::find($orderId);
-        return view('order', compact('order'));
+        $order = Order::findOrFail($orderId);
+        return view('place', compact('order'));
     }
 
-    public function basketConfirm()
+    public function basketConfirm(Request $request)
     {
+        $orderId = session('orderId');
+        if (is_null($orderId)) {
+            return redirect()->route('index');
+        }
+        $order = Order::findOrFail($orderId);
+        $order->name = $request->name;
+        $order->phone = $request->phone;
+        $order->region = $request->region;
+        $order->city = $request->city;
+        $order->novaposhta = $request->novaposhta;
+        $order->status = 1;
+        $order->save();
 
+        session()->forget('orderId');
+        return redirect()->route('index');
     }
 
     public function basketAdd($productId)

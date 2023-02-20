@@ -1,4 +1,4 @@
-@extends('master')
+@extends('layouts.master')
 
 @section('title', 'Головна')
 
@@ -75,7 +75,7 @@
     <div class="container">
         <div class="row d-flex justify-content-center">
         @foreach($products as $product)
-             @include('card', compact('product'))
+             @include('layouts.card', compact('product'))
         @endforeach
         </div>
     </div>
