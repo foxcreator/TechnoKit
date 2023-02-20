@@ -12,8 +12,8 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-5 product" >
-                <<div class="container">
+            <div class="col-lg-12 product" >
+                <div class="container">
                     <div class="starter-template">
                         <p class="alert alert-success">Добавлен товар iPhone X 256GB</p>
                         <h1>Корзина</h1>
@@ -33,41 +33,39 @@
                                 <tr>
                                     <td>
                                         <a href="{{ route('product', [$product->category->code, $product->code]) }}">
-                                            <img height="56px" src="http://internet-shop.tmweb.ru/storage/products/iphone_x_silver.jpg">
+                                            <img height="56px" src="https://content.rozetka.com.ua/goods/images/big/284957985.jpg">
                                             {{ $product->name }}
                                         </a>
                                     </td>
-                                    <td><span class="badge">1</span>
+                                    <td><span class="badge text-bg-secondary" style="color: #1a202c">{{ $product->pivot->count }}</span>
                                         <div class="btn-group form-inline">
-                                            <form action="http://internet-shop.tmweb.ru/basket/remove/2" method="POST">
-                                                <button type="submit" class="btn btn-danger" href=""><span
-                                                        class="glyphicon glyphicon-minus" aria-hidden="true"></span></button>
-                                                <input type="hidden" name="_token" value="uJxGNxe52yCdgEz9pIZAnphsgwvLb8BS8i05tld9">                            </form>
-                                            <form action="{{ route('basket-add', $product) }}" method="POST">
-                                                <button type="submit" class="btn btn-success"
-                                                        href="{{ route('basket-add', $product) }}"><span
-                                                        class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+                                            <form action="{{ route('basket-remove', $product) }}" method="POST">
+                                                <button type="submit" class="btn btn-outline-danger" href="{{ route('basket-remove', $product) }}"><span
+                                                        class="glyphicon glyphicon-minus" aria-hidden="true">-</span></button>
                                                 @csrf
-                                            @endforeach
+                                            </form>
+                                            <form action="{{ route('basket-add', $product) }}" method="POST">
+                                                <button type="submit" class="btn btn-outline-success"
+                                                        href="{{ route('basket-add', $product) }}"><span
+                                                        class="glyphicon glyphicon-plus" aria-hidden="true">+</span></button>
+                                                @csrf
+
                                         </div>
                                     </td>
                                     <td>{{ $product->price }} </td>
-                                    <td>{{ $product->price }} </td>
+                                    <td>{{ $product->getPriceForCount() }} </td>
                                 </tr>
                                 @endforeach
                                 <tr>
                                     <td colspan="3">Общая стоимость:</td>
-                                    <td>89990 ₽</td>
+                                    <td>{{ $order->GetFullPrice() }} uah</td>
                                 </tr>
                                 </tbody>
                             </table>
                             <br>
                             <div class="btn-group pull-right" role="group">
-                                <a type="button" class="btn btn-success" href="http://internet-shop.tmweb.ru/basket/place">Оформить заказ</a>
+                                <a type="button" class="btn btn-success" href="{{ route('basket-place') }}">Оформить заказ</a>
                             </div>
-            </div>
-            <div class="col-lg-5 product">
-                <h2>Описание, Характеристики</h2>
             </div>
         </div>
 

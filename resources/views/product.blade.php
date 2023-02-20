@@ -17,7 +17,7 @@
         </div>
         <div class="row">
             <div class="col-lg-5 product" >
-                <div><img src="http://internet-shop.tmweb.ru/storage/products/iphone_x.jpg" style="max-width: 100%;"></div>
+                <div><img src="https://content.rozetka.com.ua/goods/images/big/284957985.jpg" style="max-width: 100%;"></div>
             </div>
             <div class="col-lg-5 product">
                 <h2>Описание, Характеристики</h2>

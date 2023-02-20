@@ -24,6 +24,12 @@ class MainController extends Controller
 //        return view('catalog');
 //    }
 
+//    public function categories()
+//    {
+//        $categories = Category::get();
+//        return view('category', compact('categories'));
+//    }
+
     public function category($code)
     {
         $categories = Category::get();
