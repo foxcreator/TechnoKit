@@ -15,15 +15,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
+Route::get('/dashboard', function () {
+    return view('auth.login');
+});
+Route::get('/register', function () {
+    return view('register.login');
+});
 
 
 
 Route::get('/','App\Http\Controllers\MainController@index')->name('index');
 
-Route::get('/category','App\Http\Controllers\MainController@category')->name('category');
+Route::get('/catalog/{category}','App\Http\Controllers\MainController@category')->name('category');
+Route::get('/catalog','App\Http\Controllers\MainController@catalog')->name('category');
 
 Route::get('/basket','App\Http\Controllers\BasketController@basket')->name('basket');
 Route::get('/basket/place','App\Http\Controllers\BasketController@basketPlace')->name('basket-place');

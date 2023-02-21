@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('master')
 
 @section('title', 'basket')
 
@@ -49,6 +49,45 @@
 
                                 </div>
                             </div>
+
+                            2
+                            3
+                            4
+                            5
+                            6
+                            7
+                            8
+                            9
+                            10
+                            11
+                            12
+                            13
+                            14
+                            15
+                            16
+                            17
+                            18
+                            19
+                            20
+                            <div id="liqpay_checkout"></div>
+                            <script>
+                                window.LiqPayCheckoutCallback = function() {
+                                    LiqPayCheckout.init({
+                                        data: "eyJ2ZXJzaW9uIjozLCJhY3Rpb24iOiJwYXkiLCJhbW91bnQiOiIzIiwiY3VycmVuY3kiOiJVQUgiLCJkZXNjcmlwdGlvbiI6ItC80LjQuSIsInB1YmxpY19rZXkiOiJzYW5kYm94X2k1MDA0OTQ2NTA0OSIsImxhbmd1YWdlIjoidWsifQ==",
+                                        signature: "gxt9OOwWrArTslsGp1/LcYAeRWo=",
+                                        embedTo: "#liqpay_checkout",
+                                        mode: "embed" // embed || popup,
+                                    }).on("liqpay.callback", function(data){
+                                        console.log(data.status);
+                                        console.log(data);
+                                    }).on("liqpay.ready", function(data){
+                                        // ready
+                                    }).on("liqpay.close", function(data){
+                                        // close
+                                    });
+                                };
+                            </script>
+                            <script src="//static.liqpay.ua/libjs/checkout.js" async></script>
                             <br>
                             <br>
                             <br>

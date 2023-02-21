@@ -34,28 +34,34 @@ class BasketController extends Controller
             return redirect()->route('index');
         }
         $order = Order::findOrFail($orderId);
-        $order->name = $request->name;
-        $order->phone = $request->phone;
-        $order->region = $request->region;
-        $order->city = $request->city;
-        $order->novaposhta = $request->novaposhta;
-        $order->status = 1;
-        $order->save();
 
-        session()->forget('orderId');
+        $success = $order->saveOrder(
+            $request->name,
+            $request->phone,
+            $request->region,
+            $request->city,
+            $request->novaposhta
+        );
+
+        if($success) {
+            session()->flash('success', 'Заказ выполнен успешно');
+        } else  {
+            session()->flash('warning', 'Что то пошло не так..');
+        }
+
         return redirect()->route('index');
     }
 
     public function basketAdd($productId)
     {
         $orderId = session('orderId');
-        if (is_null($orderId)) {
+        $order = Order::find($orderId);
+        if (is_null($order)) {
             $order = Order::create();
             $orderId = $order->id;
             session(['orderId' => $orderId]);
-        } else {
-            $order = Order::find($orderId);
         }
+
         if ($order->products->contains($productId)){
             $pivotRow = $order->products()->where('product_id', $productId)->first()->pivot;
             $pivotRow->count++;
@@ -63,6 +69,10 @@ class BasketController extends Controller
         } else {
             $order->products()->attach($productId);
         }
+
+        $product = Product::find($productId);
+        session()->flash('success', 'Товар ' . $product->name . ' добавлен в корзину');
+
         return redirect()->route('basket');
     }
 

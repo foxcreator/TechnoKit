@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('master')
 
 @section('title')
 
@@ -28,7 +28,7 @@
 
         <div class="row">
             @foreach($category->products as $product)
-                @include('layouts.card', compact('product'))
+                @include('card', compact('product'))
             @endforeach
         </div>
     </div>

@@ -1,10 +1,12 @@
-@extends('layouts.master')
+@extends('master')
 
 @section('title', 'Головна')
 
 @section('content')
-
-<div id="carousel-ex" class="carousel slide carousel-fade pt-5" data-ride="carousel">
+    @if(session()->has('success'))
+        <p class="alert alert-success">{{ session()->get('success') }}</p>
+    @endif
+<div id="carousel-ex" class="carousel slide carousel-fade pt-1" data-ride="carousel">
     <ol class="carousel-indicators">
         <li data-bs-target="#carousel-ex" data-slide-to="0"></li>
         <li data-bs-target="#carousel-ex" data-slide-to="1"></li>
@@ -75,7 +77,7 @@
     <div class="container">
         <div class="row d-flex justify-content-center">
         @foreach($products as $product)
-             @include('layouts.card', compact('product'))
+             @include('card', compact('product'))
         @endforeach
         </div>
     </div>

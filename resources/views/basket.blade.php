@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('master')
 
 @section('title', 'basket')
 
@@ -15,7 +15,9 @@
             <div class="col-lg-12 product" >
                 <div class="container">
                     <div class="starter-template">
-                        <p class="alert alert-success">Добавлен товар iPhone X 256GB</p>
+                        @if(session()->has('success'))
+                            <p class="alert alert-success">{{ session()->get('success') }}</p>
+                        @endif
                         <h1>Корзина</h1>
                         <p>Оформление заказа</p>
                         <div class="panel">

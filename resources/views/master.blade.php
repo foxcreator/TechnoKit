@@ -58,7 +58,7 @@
                 </li>
                 <li class="nav-item">
                     {{-- TODO Настроить роут на каталог!! ошибка неизвесная переменная --}}
-                    <a href="{{ route('category') }}" class="nav-link">Каталог</a>
+                    <a href="{{ route('show', $category) }}" class="nav-link">Каталог</a>
                 </li>
                 <li class="nav-item">
                     <a href="" class="nav-link">Контакты</a>
@@ -77,7 +77,6 @@
         </div>
     </div>
 </nav>
-
 
 @yield('content')
 

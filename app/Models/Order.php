@@ -22,4 +22,22 @@ class Order extends Model
         }
         return $sum;
     }
+
+    public function saveOrder($name, $phone, $region, $city, $novaposhta)
+    {
+        if ($this->status == 0){
+            $this->name = $name;
+            $this->phone = $phone;
+            $this->region = $region;
+            $this->city = $city;
+            $this->novaposhta = $novaposhta;
+            $this->status = 1;
+            $this->save();
+
+            session()->forget('orderId');
+            return true;
+        } else{
+            return false;
+        }
+    }
 }
