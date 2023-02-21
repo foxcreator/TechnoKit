@@ -23,14 +23,16 @@ class MainController extends Controller
     public function show(Category $category)
     {
         $categories = Category::all();
-        return view('category', compact('categories'));
+        $products = $category->products;
+        return view('category', compact('category', 'categories', 'products'));
     }
 
     public function category(Category $category)
     {
-
+        $products = Product::get();
+        $categories = Category::all();
         $category = Category::where('id', $category)->first();
-        return view('category', compact('category'));
+        return view('category', compact('category', 'categories', 'products'));
     }
 
 

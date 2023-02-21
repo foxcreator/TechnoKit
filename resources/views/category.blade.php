@@ -7,15 +7,12 @@
 <div class="container">
     <div class="row">
         @foreach($categories as $categorys)
-            @if($categorys->code == 'catalog')
-
-            @else
             <div class="col-lg-3 cateÏory">
                 <a href="{{ route('category', $categorys->code) }}">
                     <div class="productNav">{{$categorys->name}}</div>
                 </a>
             </div>
-            @endif
+
         @endforeach
     </div>
 
@@ -27,7 +24,7 @@
         </h1>
 
         <div class="row">
-            @foreach($category->products as $product)
+            @foreach($products as $product)
                 @include('card', compact('product'))
             @endforeach
         </div>
