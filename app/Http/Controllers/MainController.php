@@ -27,12 +27,16 @@ class MainController extends Controller
         return view('category', compact('category', 'categories', 'products'));
     }
 
-    public function category(Category $category)
+    public function category($code = null)
     {
+        if ($code) {
+            $category = Category::where('code', $code)->firstOrFail();
+            $products = Product::where('category_id', $category->id)->get();
+            return view('category', compact('category', 'products'));
+        }
+
         $products = Product::get();
-        $categories = Category::all();
-        $category = Category::where('id', $category)->first();
-        return view('category', compact('category', 'categories', 'products'));
+        return view('category', compact('products'));
     }
 
 
