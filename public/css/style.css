@@ -1,3 +1,7 @@
+body {
+    padding-top: 20px;
+}
+
 nav {
     background-color: #0693FA;
     height: 50px;
@@ -33,7 +37,6 @@ html, body, .view {
 .carousel .carousel-inner {
     height: 100%;
 }
-
 .carousel .carousel-inner .carousel-item,
 .carousel .carousel-inner .active{
     height: 100%;
@@ -49,7 +52,6 @@ html, body, .view {
     height: 160px;
     border-radius: 10px;
     padding-right: 2px;
-    /*padding-bottom: 25px;*/
     position: relative;
     display: flex;
     align-items:center;
@@ -81,10 +83,6 @@ html, body, .view {
     margin-top: 80px;
 }
 
-.category a:hover {
-    background-color: #0693FA;
-}
-
 .product {
     margin-top: 60px;
     margin-left: 0px;
@@ -103,8 +101,6 @@ html, body, .view {
     display: flex;
     border: none;
 }
-
-
 
 footer {
     background-color: #111E49;
@@ -115,10 +111,6 @@ footer {
     justify-content: center;
 }
 
-body {
-    padding-top: 20px;
-}
-
 .starter-template {
     padding: 20px 15px;
     text-align: center;
@@ -139,173 +131,13 @@ div.form-inline form {
 div.labels {
     position: absolute;
 }
-
-/*div.labels span.badge {*/
-/*    display: block;*/
-/*}*/
-
-/*span.badge.badge-success {*/
-/*    color: #fff;*/
-/*    background-color: #28a745;*/
-/*}*/
-
-/*span.badge.badge-warning {*/
-/*    color: #fff;*/
-/*    background-color: #dc3545;*/
-/*}*/
-
-/*span.badge.badge-danger {*/
-/*    color: #212529;*/
-/*    background-color: #ffc107;*/
-/*}*/
 
 div.filters {
     padding-bottom: 5px;
 }
 
-
-nav {
-    background-color: #0693FA;
-    height: 50px;
-}
-
-.headtext {
-    font-family: Moul;
-}
-
-a {
-    text-decoration: none;
-}
-
-.navbar-light .navbar-nav .nav-link  {
-    font-family: Anybody;
-    font-weight: bold;
-    color: rgba(0, 0, 0, 0.99);
-}
-
-.navbar-light .navbar-nav .nav-item {
-    position: relative;
-    margin: auto;
-
-}
-
-html, body, .view {
-    height: 100%;
-}
-
-.carousel {
-
-    height: 50%;
-}
-
-.carousel .carousel-inner {
-    margin-top: auto;
-    height: 100%;
-}
-
-.carousel .carousel-inner .carousel-item,
-.carousel .carousel-inner .active{
-    height: 100%;
-}
-
-@media (max-width: 776px) {
-    .carousel {
-        height: 100%;
-    }
-}
-
-.news {
-    height: 160px;
-    border-radius: 10px;
-    padding-right: 2px;
-    /*padding-bottom: 25px;*/
-    position: relative;
-    display: flex;
-    align-items:center;
-    justify-content: center;
-    font-family: Anybody;
-    font-weight: bold;
-    font-size: 25px;
-
-}
-
-.productNav {
-    height: 60px;
-    margin-top: 50px;
-    margin-bottom: 25px;
-    border: 3px solid;
-    border-radius: 84px;
-    border-color: #0693FA;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: Anybody;
-    font-weight: bold;
-    font-size: 25px;
-    color: rgba(0, 0, 0, 0.99);
-}
-
-.category .productNav {
-    margin-top: 0px;
-}
-
 .category a:hover {
     background-color: #0693FA;
-}
-
-.product {
-    margin-top: 60px;
-    margin-left: 0px;
-    align-items: center;
-    align-content: center;
-}
-
-.cart {
-    position: relative;
-    right: 0;
-    top: 37%;
-}
-
-.card {
-    position: relative;
-    display: flex;
-    border: none;
-}
-
-
-footer {
-    background-color: #111E49;
-    height: 70px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-body {
-    padding-top: 40px;
-}
-
-.starter-template {
-    padding: 20px 15px;
-    text-align: center;
-}
-
-table {
-    text-align: left;
-}
-
-div.thumbnail img {
-    max-height: 200px;
-}
-
-div.form-inline form {
-    display: inline;
-}
-
-div.labels {
-    position: absolute;
 }
 
 div.labels span.badge {
@@ -327,8 +159,5 @@ span.badge.badge-danger {
     background-color: #ffc107;
 }
 
-div.filters {
-    padding-bottom: 5px;
-}
 
 

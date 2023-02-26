@@ -9,13 +9,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-3">
-                    <div class="productNav">О нас</div>
+                    <div class="productNav">Про нас</div>
                 </div>
             </div>
         </div>
         <div class="container">
             <div class="row d-flex">
-                <div class="col-lg-5">
+                <div class="col-lg-5" style="font-size: 20px">
                 <p style="width: 50%;"><h2>Умови доставки</h2>
                 <br>
                 ● Доставка по Україні здійснюється перевізником Нова Пошта: кур‘єрська доставка; доставка у зручне для Вас відділення, або поштомат (доставка іншими перевізниками обговорюється індивідуально).
@@ -32,8 +32,8 @@
                 <br>
                 </div>
                 <div class="col-lg-5 link-secondary text-center">
-                    <h6 class="links"><a class="link-secondary" href="{{ asset('') }}" download>Договор оферты</a></h6>
-                    <h6 class="links"><a class="link-secondary" href="{{ asset('') }}" download>Политика Конфеденциальности</a></h6>
+                    <h4 class="links"><a class="link-secondary" href="{{ asset('') }}" download>Договір оферти</a></h4>
+                    <h4 class="links"><a class="link-secondary" href="{{ asset('') }}" download>Політика конфіденційності</a></h4>
                 </div>
 
             </div>

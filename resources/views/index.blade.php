@@ -20,7 +20,7 @@
                 <div class="mask rgba-black-strong d-flex justify-content-right align-items-center">
                     <div class="text-left mx-5 mb-10 pt-5 wow fadeIn">
                         <h1 class="mb-6 mx-6">
-                            <strong>Замовлення товару не виходячи з дому</strong>
+                            <strong>Замовлення товару<br> не виходячи з дому</strong>
                         </h1>
                         <p>Ви завжди можете замовити товар тільки за допомогою телефону</p>
                     </div>

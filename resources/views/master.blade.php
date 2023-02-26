@@ -5,13 +5,13 @@
 <head>
     <meta charset="UTF-8">
     <meta property="og:description" content="Інтернет магазин якісної техникі" />
-
+    <meta name="viewport" content="width=device-width">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css" integrity="sha384-QYIZto+st3yW+o8+5OHfT6S482Zsvz2WfOzpFSXMF9zqeLcFV0/wlZpMtyFcZALm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Moul|Anybody:Bold">
-    <link rel="icon" href="Images/cat-7497114_640.png" type="image/png" sizes="32x32">
+    <link rel="icon" href="{{ asset('Images/cat-7497114_640.png') }}" type="image/png" sizes="32x32">
 
     <link rel="stylesheet" href="/css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
@@ -37,15 +37,17 @@
 </head>
 <body>
 
+
+
 <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
     <div class="container navi">
 
 
         <a href="{{ route('index') }}" class="navbar-brand">
-            <strong class="blue-text"><img src="{{asset('Images/cat-7497114_640.png')}}" height="25px" width="25px"></strong>
+            <strong class="blue-text"><img src="{{asset('Images/cat-7497114_640.png')}}" height="28px" width="28px"></strong>
         </a>
         <a href="{{ route('index') }}" class="navbar-brand">
-            <strong class="blue-text headtext">TechnoKit</strong>
+            <strong class="blue-text headtext" style="font-size: 24px">TechnoKit</strong>
         </a>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
@@ -55,19 +57,18 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarContent" style="margin-left: 50%">
-            <ul class="navbar-nav mr-auto text-menu">
+            <ul class="navbar-nav mr-auto text-menu" style="font-size: 20px">
                 <li class="nav-item active">
                     <a href="{{ route('index') }}" class="nav-link">Головна</a>
                 </li>
                 <li class="nav-item">
-                    {{-- TODO Настроить роут на каталог!! ошибка неизвесная переменная --}}
                     <a href="{{ route('show', $category ?? '') }}" class="nav-link">Каталог</a>
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('contacts') }}" class="nav-link">Контакти</a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('aboutus') }}" class="nav-link">О нас</a>
+                    <a href="{{ route('aboutus') }}" class="nav-link">Про нас</a>
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('basket') }}" class="nav-link">
@@ -99,6 +100,8 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
+
+
 </body>
 
 
