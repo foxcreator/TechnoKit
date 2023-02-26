@@ -1,29 +1,41 @@
 @extends('master')
 
-@section('title', $product)
+@section('title')
 
 @section('content')
-
 <div class="container">
     <div class="row d-flex justify-content-center">
         <div class="row">
+
             <div class="col-lg-5 product">
-                <h2>Iphone 14 Pro Max</h2>
+                <h2>{{ $product->name }}</h2><br>
+                <h3>₴ {{ $product->price }}</h3>
             </div>
+
             <div class="col-lg-4"></div>
-            <div class="col-lg-3 product">
-                <button type="button" class="btn btn-success cart">Добавить в корзину</button>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-5 product" >
-                <div><img src="https://content.rozetka.com.ua/goods/images/big/284957985.jpg" style="max-width: 100%;"></div>
-            </div>
-            <div class="col-lg-5 product">
-                <h2>Описание, Характеристики</h2>
+                <form action="{{ route('basket-add', $product->id) }}" method="POST">
+                    <button type="submit" class="btn btn-success cart">Додати до кошику</button>
+                    @csrf
+                </form>
             </div>
         </div>
 
+        <div class="row">
+            <div class="col-lg-5 product" >
+                <div><img src="{{ asset('Images/' . $product->image) }}" style="max-width: 60%;"></div>
+                <br>
+                <br>
+                <br>
+            </div>
+            <div class="col-lg-5 product">
+
+                <h2>Опис, Характеристики</h2>
+                <p>{{ $product->description }}</p>
+                <br>
+
+            </div>
+
+        </div>
     </div>
 </div>
 

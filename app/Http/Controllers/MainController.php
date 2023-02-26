@@ -10,36 +10,64 @@ class MainController extends Controller
 {
     public function index()
     {
-        $products = Product::get();
+        $products = Product::all();
         return view('index', compact('products'));
     }
 
-    public function product($product)
+    public function product($category, $id)
     {
-        return view('product', ['product' => $product]);
+        $product = Product::findOrFail($id);
+        return view('   product', compact('product'));
+    }
+
+    public function oneProduct()
+    {
+
     }
 
 
-    public function show(Category $category)
+    public function category($code)
     {
         $categories = Category::all();
-        $products = $category->products;
-        return view('category', compact('category', 'categories', 'products'));
-    }
-
-    public function category($code = null)
-    {
+        $products = Product::all();
+        ;
         if ($code) {
-            $category = Category::where('code', $code)->firstOrFail();
-            $products = Product::where('category_id', $category->id)->get();
-            return view('category', compact('category', 'products'));
+            $category = Category::where('code', $code)->first();
+            if ($category) {
+                $products = $category->products;
+            }
         }
-
-        $products = Product::get();
-        return view('category', compact('products'));
+        $categoryName = $category->name;
+        return view('category', compact('categories', 'category', 'products', 'categoryName'));
     }
 
 
+    public function show()
+    {
+        $category = Category::first();
+        return redirect()->route('category', $category->code);
+    }
+
+    public function contacts()
+    {
+        return view('contacts');
+    }
+
+    public function aboutus()
+    {
+        return view('aboutus');
+    }
+
+    public function formChecking(Request $request)
+    {
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'phone' => 'required',
+            'region' => 'required',
+            'city' => 'required',
+            'novaposhta' => 'required',
+        ]);
+    }
 
 
 }

@@ -9,6 +9,11 @@ class Product extends Model
 {
     use HasFactory;
 
+//    public function scopeByCode($query, $code)
+//    {
+//        return $query->where('code', $code);
+//    }
+
     public function category()
     {
         return $this->belongsTo(Category::class);
@@ -20,5 +25,10 @@ class Product extends Model
             return $this->pivot->count * $this->price;
         }
         return $this->price;
+    }
+
+    public function getProduct()
+    {
+        $product = Product::all();
     }
 }

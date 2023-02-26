@@ -13,6 +13,8 @@ class BasketController extends Controller
         $orderId = session('orderId');
         if (!is_null($orderId)) {
             $order = Order::findOrFail($orderId);
+        }else{
+            $order =null;
         }
         return view('basket', compact('order'));
     }

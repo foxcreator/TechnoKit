@@ -4,11 +4,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta property="og:description" content="Інтернет магазин якісної техникі" />
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css" integrity="sha384-QYIZto+st3yW+o8+5OHfT6S482Zsvz2WfOzpFSXMF9zqeLcFV0/wlZpMtyFcZALm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Moul|Anybody:Bold">
+    <link rel="icon" href="Images/cat-7497114_640.png" type="image/png" sizes="32x32">
 
     <link rel="stylesheet" href="/css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
@@ -39,7 +42,7 @@
 
 
         <a href="{{ route('index') }}" class="navbar-brand">
-            <strong class="blue-text"><img src="cat-7497114_640.png" height="25px" width="25px"></strong>
+            <strong class="blue-text"><img src="{{asset('Images/cat-7497114_640.png')}}" height="25px" width="25px"></strong>
         </a>
         <a href="{{ route('index') }}" class="navbar-brand">
             <strong class="blue-text headtext">TechnoKit</strong>
@@ -54,17 +57,17 @@
         <div class="collapse navbar-collapse" id="navbarContent" style="margin-left: 50%">
             <ul class="navbar-nav mr-auto text-menu">
                 <li class="nav-item active">
-                    <a href="{{ route('index') }}" class="nav-link">Главная</a>
+                    <a href="{{ route('index') }}" class="nav-link">Головна</a>
                 </li>
                 <li class="nav-item">
                     {{-- TODO Настроить роут на каталог!! ошибка неизвесная переменная --}}
                     <a href="{{ route('show', $category ?? '') }}" class="nav-link">Каталог</a>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link">Контакты</a>
+                    <a href="{{ route('contacts') }}" class="nav-link">Контакти</a>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link">О нас</a>
+                    <a href="{{ route('aboutus') }}" class="nav-link">О нас</a>
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('basket') }}" class="nav-link">
@@ -83,10 +86,10 @@
 <footer>
     <div class="container">
         <div class="row" style="color: aliceblue">
-            <div class="col-4">1asdasd</div>
-            <div class="col-4">2asdasd</div>
-            <div class="col-4">3asdasd</div>
-            <div class="col-4">4asdasd</div>
+            <div class="col-3" style="font-size: 12px">© Created by FoxCreator</div>
+            <div class="col-3" style="font-size: 12px"><a class="link-secondary" href="{{ asset('') }}" download>Договір оферти</a></div>
+            <div class="col-3" style="font-size: 12px"><a class="link-secondary" href="{{ asset('') }}" download>Політика конфіденційності</a></div>
+            <div class="col-3" style="font-size: 12px">All rights Reserved</div>
         </div>
     </div>
 </footer>

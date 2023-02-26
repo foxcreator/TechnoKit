@@ -25,9 +25,11 @@ Route::get('/register', function () {
 
 
 Route::get('/','App\Http\Controllers\MainController@index')->name('index');
+Route::get('/contacts','App\Http\Controllers\MainController@contacts')->name('contacts');
+Route::get('/aboutus','App\Http\Controllers\MainController@aboutus')->name('aboutus');
 
-Route::get('/catalog/{category}','App\Http\Controllers\MainController@show')->name('show');
-Route::get('/catalog','App\Http\Controllers\MainController@category')->name('category');
+Route::get('/catalog','App\Http\Controllers\MainController@show')->name('show');
+Route::get('/catalog/{code}','App\Http\Controllers\MainController@category')->name('category');
 
 Route::get('/basket','App\Http\Controllers\BasketController@basket')->name('basket');
 Route::get('/basket/place','App\Http\Controllers\BasketController@basketPlace')->name('basket-place');
@@ -36,8 +38,7 @@ Route::post('/basket/remove/{id}', 'App\Http\Controllers\BasketController@basket
 
 Route::post('/basket/place','App\Http\Controllers\BasketController@basketConfirm')->name('basket-confirm');
 
-Route::get('/{category}/{product?}','App\Http\Controllers\MainController@product')->name('product');
-
+Route::get('/{category}/{id}','App\Http\Controllers\MainController@product')->name('product');
 //Route::get('/basket', [\App\Http\Controllers\BasketController::class, 'basket']);
 //Route::get('/basket/add/{id}', [\App\Http\Controllers\BasketController::class, 'basketAdd']);
 

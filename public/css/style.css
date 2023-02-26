@@ -105,9 +105,10 @@ html, body, .view {
 }
 
 
+
 footer {
     background-color: #111E49;
-    height: 201px;
+    height: 20px;
     position: relative;
     display: flex;
     align-items: center;
@@ -275,7 +276,7 @@ html, body, .view {
 
 footer {
     background-color: #111E49;
-    height: 201px;
+    height: 70px;
     position: relative;
     display: flex;
     align-items: center;

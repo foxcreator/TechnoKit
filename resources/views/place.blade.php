@@ -6,41 +6,39 @@
 
 <div class="container">
     <div class="starter-template">
-        <h1>Подтвердите заказ:</h1>
+        <h1>Підтвердіть замовлення:</h1>
         <div class="container">
             <div class="row justify-content-center">
-                <p>Общая стоимость: <b>{{ $order->getFullPrice() }}</b></p>
+                <p>Загальна вартість: <b>{{ $order->getFullPrice() }} ₴</b></p>
                 <form action="{{ route('basket-confirm') }}" method="POST">
                     <div>
-                        <p>Укажите свои имя и номер телефона, чтобы наш менеджер мог с вами связаться:</p>
+                        <p>Вкажіть свої ім'я та номер телефону, щоб наш менеджер міг з вами зв'язатися:</p>
 
                         <div class="container">
                             <div class="row">
                                 <div class="col-lg-5">
-{{--                            <div class="form-group col-lg-4">--}}
-{{--                                <label for="name" class="control-label col-lg-offset-3 col-lg-2">Имя: </label>--}}
                                     <div class="input-group flex-nowrap ">
-                                        <span class="input-group-text" id="addon-wrapping">Имя Фамилия</span>
-                                        <input type="text" name="name" id="name" class="form-control" placeholder="Введите вашу Фамилию и имя" aria-label="Username" aria-describedby="addon-wrapping">
-                                    </div>
-                                        <br>
+                                        <span class="input-group-text" id="addon-wrapping">Ім'я Прізвище</span>
+                                        <input type="text" name="name" id="name" class="form-control" placeholder="Введіть ваше Прізвище та Ім'я" aria-label="Username" aria-describedby="addon-wrapping">
+                                    </div><br>
+
                                     <div class="input-group flex-nowrap ">
-                                        <span class="input-group-text" id="addon-wrapping">Номер телефона</span>
-                                        <input type="text" name="phone" id="phone" class="form-control" placeholder="0991234567" aria-label="Username" aria-describedby="addon-wrapping">
+                                        <span class="input-group-text" id="addon-wrapping">Номер телефону</span>
+                                        <input type="text" name="phone" id="phone" class="form-control" placeholder="0__-___-__-__" aria-label="Username" aria-describedby="addon-wrapping">
                                     </div>
                                         <br>
                                     <div class="input-group flex-nowrap ">
                                         <span class="input-group-text" id="addon-wrapping">Область</span>
-                                        <input type="text" name="region" id="region" class="form-control" placeholder="Днепропетровская область" aria-label="Username" aria-describedby="addon-wrapping">
+                                        <input type="text" name="region" id="region" class="form-control" placeholder="Дніпропетровська область" aria-label="Username" aria-describedby="addon-wrapping">
                                     </div>
                                     <br>
                                     <div class="input-group flex-nowrap ">
-                                        <span class="input-group-text" id="addon-wrapping">Город</span>
-                                        <input type="text" name="city" id="city" class="form-control" placeholder="Город" aria-label="Username" aria-describedby="addon-wrapping">
+                                        <span class="input-group-text" id="addon-wrapping">Місто</span>
+                                        <input type="text" name="city" id="city" class="form-control" placeholder="Місто" aria-label="Username" aria-describedby="addon-wrapping">
                                     </div>
                                     <br>
                                     <div class="input-group flex-nowrap ">
-                                        <span class="input-group-text" id="addon-wrapping">Отделение Новой почты</span>
+                                        <span class="input-group-text" id="addon-wrapping">Відділення Нової пошти</span>
                                         <input type="text" name="novaposhta" id="novaposhta" class="form-control" placeholder="№" aria-label="Username" aria-describedby="addon-wrapping">
                                     </div>
                                 </div>
@@ -49,80 +47,16 @@
 
                                 </div>
                             </div>
-
-                            2
-                            3
-                            4
-                            5
-                            6
-                            7
-                            8
-                            9
-                            10
-                            11
-                            12
-                            13
-                            14
-                            15
-                            16
-                            17
-                            18
-                            19
-                            20
-                            <div id="liqpay_checkout"></div>
-                            <script>
-                                window.LiqPayCheckoutCallback = function() {
-                                    LiqPayCheckout.init({
-                                        data: "eyJ2ZXJzaW9uIjozLCJhY3Rpb24iOiJwYXkiLCJhbW91bnQiOiIzIiwiY3VycmVuY3kiOiJVQUgiLCJkZXNjcmlwdGlvbiI6ItC80LjQuSIsInB1YmxpY19rZXkiOiJzYW5kYm94X2k1MDA0OTQ2NTA0OSIsImxhbmd1YWdlIjoidWsifQ==",
-                                        signature: "gxt9OOwWrArTslsGp1/LcYAeRWo=",
-                                        embedTo: "#liqpay_checkout",
-                                        mode: "embed" // embed || popup,
-                                    }).on("liqpay.callback", function(data){
-                                        console.log(data.status);
-                                        console.log(data);
-                                    }).on("liqpay.ready", function(data){
-                                        // ready
-                                    }).on("liqpay.close", function(data){
-                                        // close
-                                    });
-                                };
-                            </script>
-                            <script src="//static.liqpay.ua/libjs/checkout.js" async></script>
                             <br>
                             <br>
                             <br>
                             <br>
                             @csrf
-                            <input type="submit" class="btn btn-success" value="Подтвердите заказ">
+                            <input type="submit" class="btn btn-success" value="Підтвердьте замовлення">
                             <br>
                             <br>
                             <br>
                         </div>
-{{--                            </div>--}}
-{{--                            <br>--}}
-{{--                            <br>--}}
-{{--                            <div class="form-group">--}}
-{{--                                <label for="phone" class="control-label col-lg-offset-3 col-lg-2">Номер телефона: </label>--}}
-{{--                                <div class="col-lg-4">--}}
-{{--                                    <input type="text" name="phone" id="phone" value="" class="form-control">--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                            <br>--}}
-{{--                            <br>--}}
-{{--                            <div class="form-group">--}}
-{{--                                <label for="name" class="control-label col-lg-offset-3 col-lg-2">Email: </label>--}}
-{{--                                <div class="col-lg-4">--}}
-{{--                                    <input type="text" name="email" id="email" value="" class="form-control">--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        <br>--}}
-{{--                        <input type="submit" class="btn btn-success" value="Подтвердите заказ">--}}
-{{--                    </div>--}}
-{{--                </form>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
 </div>
 
 @endsection
