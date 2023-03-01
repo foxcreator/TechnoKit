@@ -10,7 +10,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <p>Загальна вартість: <b>{{ $order->getFullPrice() }} ₴</b></p>
-                <form action="{{ route('basket-confirm', ['productId' => $product->id]) }}" method="POST">
+                <form action="{{ route('basket-confirm')}}" method="POST">
                     <div>
                         <p>Вкажіть свої ім'я та номер телефону, щоб наш менеджер міг з вами зв'язатися:</p>
 
@@ -41,6 +41,11 @@
                                         <span class="input-group-text" id="addon-wrapping">Відділення Нової пошти</span>
                                         <input type="text" name="novaposhta" id="novaposhta" class="form-control" placeholder="№" aria-label="Username" aria-describedby="addon-wrapping">
                                     </div>
+{{--                                    <input type="hidden" name="product_id" value="{{ $product->id }}">--}}
+{{--                                    <div class="input-group flex-nowrap ">--}}
+{{--                                        <span class="input-group-text" id="addon-wrapping">Продукт</span>--}}
+{{--                                        <input type="text" class="form-control" value="{{ $productName }}" readonly>--}}
+{{--                                    </div>--}}
                                 </div>
                                 <div class="col-lg-1"></div>
                                 <div class="col-lg-5">
