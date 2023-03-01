@@ -23,7 +23,7 @@ class Order extends Model
         return $sum;
     }
 
-    public function saveOrder($name, $phone, $region, $city, $novaposhta)
+    public function saveOrder($name, $phone, $region, $city, $novaposhta, $productId)
     {
         if ($this->status == 0){
             $this->name = $name;
@@ -31,6 +31,7 @@ class Order extends Model
             $this->region = $region;
             $this->city = $city;
             $this->novaposhta = $novaposhta;
+            $this->productId = $productId;
             $this->status = 1;
             $this->save();
 

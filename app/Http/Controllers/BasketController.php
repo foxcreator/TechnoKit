@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class BasketController extends Controller
 {
@@ -13,10 +14,12 @@ class BasketController extends Controller
         $orderId = session('orderId');
         if (!is_null($orderId)) {
             $order = Order::findOrFail($orderId);
+            $products = $order->products;
         }else{
-            $order =null;
+            $order = null;
+            $products = null;
         }
-        return view('basket', compact('order'));
+        return view('basket', compact('order', 'products'));
     }
 
     public function basketPlace()
@@ -29,7 +32,7 @@ class BasketController extends Controller
         return view('place', compact('order'));
     }
 
-    public function basketConfirm(Request $request)
+    public function basketConfirm(Request $request, $productId)
     {
         $orderId = session('orderId');
         if (is_null($orderId)) {
@@ -42,7 +45,8 @@ class BasketController extends Controller
             $request->phone,
             $request->region,
             $request->city,
-            $request->novaposhta
+            $request->novaposhta,
+            $productId
         );
 
         if($success) {
@@ -51,6 +55,26 @@ class BasketController extends Controller
             session()->flash('warning', 'Что то пошло не так..');
         }
 
+        $chatId = 'TechnoKitAdminOrders'; // замените на ID вашего канала
+        $botToken = '6150730200:AAEzMCCQ2C7J36kYp3JIEr9Za7NxAKb9nBQ'; // замените на токен вашего бота
+
+        $message = "Новый заказ!\n\n";
+        $message .= "Имя: " . $request->name . "\n";
+        $message .= "Телефон: " . $request->phone . "\n";
+        $message .= "Регион: " . $request->region . "\n";
+        $message .= "Город: " . $request->city . "\n";
+        $message .= "Отделение Новой Почты: " . $request->novaposhta . "\n";
+
+
+        $response = Http::post("https://api.telegram.org/bot{$botToken}/sendMessage", [
+            'chat_id' => $chatId,
+            'text' => $message,
+        ]);
+
+        if ($response->failed()) {
+            $error = $response['description'];
+            dd($error);
+        }
         return redirect()->route('index');
     }
 
@@ -73,10 +97,12 @@ class BasketController extends Controller
         }
 
         $product = Product::find($productId);
-        session()->flash('success', 'Товар ' . $product->name . ' добавлен в корзину');
+        session()->flash('success', 'Товар ' . $product->name . ' доданий до кошика');
 
-        return redirect()->route('basket');
+        return redirect()->route('basket-place', ['productId' => $productId]);
     }
+
+
 
     public function basketRemove($productId)
     {
@@ -87,8 +113,6 @@ class BasketController extends Controller
         }
 
         $order = Order::find($orderId);
-//        $order->products()->detach($productId);
-//        return redirect()->route('basket');
 
         if ($order->products->contains($productId)){
             $pivotRow = $order->products()->where('product_id', $productId)->first()->pivot;

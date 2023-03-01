@@ -19,17 +19,17 @@
 
     <title>TechnoKit: @yield('title')</title>
     <style>
-        html, body, header, .carousel{
+        html, body, .carousel{
             height: 60vh;
         }
         @media (max-width: 740px) {
-            .html, body, header, .carousel{
+            .html, body, .carousel{
                 height: 100vh;
             }
         }
 
         @media (min-width: 800px) and (max-width: 850px) {
-            .html, body, header, .carousel{
+            .html, body, .carousel{
                 height: 100vh;
             }
         }
@@ -37,50 +37,27 @@
 </head>
 <body>
 
-
-
-<nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
-    <div class="container navi">
-
-
-        <a href="{{ route('index') }}" class="navbar-brand">
-            <strong class="blue-text"><img src="{{asset('Images/cat-7497114_640.png')}}" height="28px" width="28px"></strong>
-        </a>
-        <a href="{{ route('index') }}" class="navbar-brand">
-            <strong class="blue-text headtext" style="font-size: 24px">TechnoKit</strong>
-        </a>
-
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
-                aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle Navigation">
-            <span class="navbar-toggler-icon"></span>
-
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarContent" style="margin-left: 50%">
-            <ul class="navbar-nav mr-auto text-menu" style="font-size: 20px">
-                <li class="nav-item active">
-                    <a href="{{ route('index') }}" class="nav-link">Головна</a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('show', $category ?? '') }}" class="nav-link">Каталог</a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('contacts') }}" class="nav-link">Контакти</a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('aboutus') }}" class="nav-link">Про нас</a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('basket') }}" class="nav-link">
-                        <h5 style="font-weight: bold"><i class="bi bi-cart"></i></h5>
-                    </a>
-                </li>
-            </ul>
-
-
+<header>
+    <a class="header-img" href="{{ route('index') }}">
+    <img src="{{asset('Images/cat-7497114_640.png')}}" height="25px" width="25px">
+    </a>
+    <a class="header-logo" href="{{ route('index') }}">
+        <div class="header-logos">TechnoKit</div>
+    </a>
+    <nav>
+        <div class="topnav" id="myTopnav">
+            <a href="{{ route('index') }}">Головна</a>
+            <a href="{{ route('show', $category ?? '') }}">Каталог</a>
+            <a href="{{ route('contacts') }}">Контакти</a>
+            <a href="{{ route('aboutus') }}">Про нас</a>
+            <a href="{{ route('basket') }}"><i class="bi bi-cart" style="font-size: 20px; font-weight: bold"></i></a>
+            <a href="#" id="menu" class="icon">&#9776;</a>
         </div>
-    </div>
-</nav>
+    </nav>
+</header>
+
+
+
 
 @yield('content')
 
@@ -97,7 +74,7 @@
 
 
 
-
+<script src="/js/script.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
 

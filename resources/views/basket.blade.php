@@ -72,7 +72,9 @@
 
                             <br>
                             <div class="btn-group pull-right" role="group">
-                                <a type="button" class="btn btn-success" href="{{ route('basket-place') }}">Оформити замовлення</a>
+{{--                                <form action="{{ route('basket-confirm', ['productId' => $product->id]) }}" method="POST">--}}
+                                    <a type="button" class="btn btn-success" href="{{ route('basket-place') }}">Оформити замовлення</a>
+{{--                                </form>--}}
                             </div>
                             @endif
                             <br>
